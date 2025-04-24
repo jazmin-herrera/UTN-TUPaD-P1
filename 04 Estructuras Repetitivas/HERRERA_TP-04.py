@@ -4,48 +4,75 @@ for i in range(101):
 
 ###############################
 #Ejercicio 2
-int(input("Ingrese numero entero: "))
+umero = int(input("Ingresa un número entero: "))  
+cantidad_digitos = len(str(abs(numero)))  
+print(f"El número {numero} tiene {cantidad_digitos} dígitos.")
 
 ###############################
 
 #Ejercicio 3
-inicio = int(input("Ingresa el primer número: "))
-fin = int(input("Ingresa el segundo número: "))
+valor1 = int(input("Ingresa el primer valor entero: "))
+valor2 = int(input("Ingresa el segundo valor entero: "))
+
+if valor1 < valor2:
+    inicio = valor1 + 1
+    fin = valor2
+else:
+    inicio = valor2 + 1
+    fin = valor1
 
 suma = 0
-for i in range(inicio + 1, fin):
-    suma += i
+for numero in range(inicio, fin):
+    suma += numero
+suma = sum(range(inicio, fin))
 
-print(f"La suma entre {inicio} y {fin} es: {suma}")
+print(f"La suma de los números entre {valor1} y {valor2}, excluyéndolos, es: {suma}")
 
 ###############################
 
 #Ejercicio 4
-suma = 0
-numero = int(input("Ingresa un número (0 para salir): "))
+total = 0
 
-while numero != 0:
-    suma += numero
-    numero = int(input("Ingresa otro número (0 para salir): "))
+print("Ingresa números enteros para sumarlos. Ingresa 0 para finalizar.")
 
-print(f"Suma total: {suma}")
+while True:
+    numero = int(input("Ingresa un número: "))
+    if numero == 0:  
+        break
+    total += numero  
+
+print(f"El total acumulado es: {total}")
 
 ###############################
 
 #Ejercicio 5
 import random
 
-secreto = random.randint(0, 9)
-intentos = 0
-adivinado = False
+numero_secreto = random.randint(0, 9)
 
-while not adivinado:
-    intento = int(input("Adivina el número entre 0 y 9: "))
-    intentos += 1
-    if intento == secreto:
-        adivinado = True
+print("¡Bienvenido al juego de adivinar el número!")
+print("Estoy pensando en un número entre 0 y 9. ¿Puedes adivinar cuál es?")
 
-print(f"¡Correcto! Lo adivinaste en {intentos} intentos.")
+intentos = 0  
+acertado = False  
+
+
+while not acertado:
+    
+    intento = int(input("Ingresa tu intento: "))
+    intentos += 1  
+
+    
+    if intento == numero_secreto:
+        print("¡Felicidades! Adivinaste el número.")
+        acertado = True  
+    elif intento < numero_secreto:
+        print("El número es mayor. ¡Inténtalo de nuevo!)
+    else:
+        print("El número es menor. ¡Inténtalo de nuevo!")  
+
+
+print(f"Lo lograste en {intentos} intentos. ¡Buen trabajo!")
 
 ###############################
 
@@ -55,13 +82,13 @@ for i in range(100, -1, -2):
 ###############################
 
 #Ejercicio 7
-n = int(input("Ingresa un número entero positivo: "))
-suma = 0
-
-for i in range(n + 1):
-    suma += i
-
-print(f"La suma de los números entre 0 y {n} es: {suma}")
+if numero >= 0:
+    suma = 0
+    for i in range(numero + 1):  
+        suma += i
+    print(f"La suma de los números entre 0 y {numero} es: {suma}")
+else:
+    print("Por favor, ingresa un número entero positivo.")
 
 ###############################
 
@@ -84,14 +111,23 @@ print(f"Pares: {pares}, Impares: {impares}, Positivos: {positivos}, Negativos: {
 ###############################
 
 #Ejercicio 9
+cantidad_numeros = 100
+
+
 suma = 0
 
-for _ in range(100):  # Puedes usar 10 para probar
-    numero = int(input("Ingresa un número: "))
-    suma += numero
 
-media = suma / 100
-print(f"La media es: {media}")
+print(f"Ingresa {cantidad_numeros} números enteros:")
+
+for i in range(cantidad_numeros):
+    numero = int(input(f"Ingresa el número {i + 1}: "))  
+    suma += numero  
+
+
+media = suma / cantidad_numeros
+
+
+print(f"\nLa media de los números ingresados es: {media}")
 
 ###############################
 
